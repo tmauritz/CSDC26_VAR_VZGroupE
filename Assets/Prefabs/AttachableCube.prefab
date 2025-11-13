@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 2509471093308645201}
   - component: {fileID: 2496375374727171965}
   - component: {fileID: 8483310990455845079}
-  m_Layer: 3
-  m_Name: SmallGrabbableCube
-  m_TagString: Attachable
+  m_Layer: 6
+  m_Name: AttachableCube
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 1361529433078801690}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.005, y: 0.33, z: 1.549}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -180,7 +180,7 @@ MonoBehaviour:
   _targetTransform: {fileID: 2993028830084844112}
   _maxGrabPoints: -1
   _rigidbody: {fileID: 2496375374727171965}
-  _kinematicWhileSelected: 1
+  _kinematicWhileSelected: 0
   _throwWhenUnselected: 1
 --- !u!1 &4371256168775003164
 GameObject:
@@ -194,7 +194,7 @@ GameObject:
   - component: {fileID: 9171968354967048742}
   - component: {fileID: 1095943012509889213}
   - component: {fileID: 3945408282502167921}
-  m_Layer: 3
+  m_Layer: 6
   m_Name: '[BuildingBlock] HandGrabInstallationRoutine'
   m_TagString: Untagged
   m_Icon: {fileID: 0}
