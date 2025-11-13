@@ -11,14 +11,16 @@ public class Socket : MonoBehaviour
     [SerializeField] public Material baseMaterialPassive;
     [SerializeField] public Material baseMaterialActive;
     [SerializeField] public LayerMask layer;
+    [SerializeField] public Rigidbody parentRigidbody;
     
     private bool objectInSocket = false;
+    private ConfigurableJoint joint = null;
     
     private GameObject targetGameObject;
     
     private void OnTriggerEnter(Collider other)
     {
-        if((layer.value & (1 << other.gameObject.layer)) > 0)
+        if(!objectInSocket && ((layer.value & (1 << other.gameObject.layer)) > 0))
         {
             targetGameObject = other.gameObject;
             Grabbable grabbable = targetGameObject.GetComponent<Grabbable>();
@@ -33,18 +35,23 @@ public class Socket : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if((layer.value & (1 << other.gameObject.layer)) > 0 && !objectInSocket)
+        if(!objectInSocket && ((layer.value & (1 << other.gameObject.layer)) > 0))
         {
             Rigidbody targetRigidbody = targetGameObject.GetComponent<Rigidbody>();
             Grabbable grabbable = other.GetComponent<Grabbable>();
-            if (grabbable != null && (grabbable.SelectingPointsCount == 0) && (objectInSocket == false))
-            {
-                targetGameObject.transform.parent = attachPoint.transform;
-                targetGameObject.transform.position = attachPoint.transform.position;
-                targetGameObject.transform.rotation = attachPoint.transform.rotation;
-                targetRigidbody.useGravity = false;
-                targetRigidbody.isKinematic = true;
-                targetRigidbody.detectCollisions = false;
+            if (grabbable != null && (grabbable.SelectingPointsCount == 0) && !objectInSocket)
+            {   
+                joint = parentRigidbody.gameObject.AddComponent<ConfigurableJoint>();
+                joint.connectedBody = targetRigidbody;
+                joint.xMotion = ConfigurableJointMotion.Locked;
+                joint.yMotion = ConfigurableJointMotion.Locked;
+                joint.zMotion = ConfigurableJointMotion.Locked;
+                joint.angularXMotion = ConfigurableJointMotion.Locked;
+                joint.angularYMotion = ConfigurableJointMotion.Locked;
+                joint.angularZMotion = ConfigurableJointMotion.Locked;
+                joint.massScale = 1f;
+                joint.connectedMassScale = 1f;
+                joint.enableCollision = false;
                 objectInSocket = true;
             }
         }
@@ -52,8 +59,18 @@ public class Socket : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        targetGameObject = null;
-        socketBase.GetComponent<MeshRenderer>().material = baseMaterialPassive;
+        //only break the joint if the target object is grabbed
+        if (targetGameObject.GetComponent<Grabbable>().SelectingPointsCount > 0)
+        {
+            targetGameObject = null;
+            socketBase.GetComponent<MeshRenderer>().material = baseMaterialPassive;
+            clearJoint();
+        }
+    }
+
+    private void clearJoint()
+    {
+        Destroy(joint);
         objectInSocket = false;
     }
 }
