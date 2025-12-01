@@ -1,20 +1,34 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 
-public class SocketEvents : MonoBehaviour
+public class DoenerSocket : MonoBehaviour
 {
-    public Collider rigidbodyColliderbase;
-        
+    [FormerlySerializedAs("rigidbodyColliderbase")] [SerializeField]
+    public Collider rigidbodyColliderBase;
+    [SerializeField]
+    private Doener doener;
+
     public void OnSelectEntered(SelectEnterEventArgs arg0)
     {
         var other = arg0.interactableObject.transform.gameObject;
         SocketCollisionsIgnored(other, true);
+        Ingredient ingredient = other.GetComponent<Ingredient>();
+        if (ingredient != null)
+        {
+            doener.AddIngredient(ingredient.Type);
+        }
     }
     
     public void OnSelectExited(SelectExitEventArgs arg0)
     {
         var other = arg0.interactableObject.transform.gameObject;
         SocketCollisionsIgnored(other, false);
+        Ingredient ingredient = other.GetComponent<Ingredient>();
+        if (ingredient != null)
+        {
+            doener.RemoveIngredient(ingredient.Type);
+        }
     }
     
     private void SocketCollisionsIgnored(GameObject other, bool flag)
@@ -24,6 +38,6 @@ public class SocketEvents : MonoBehaviour
     
         // overkill - all (A,B) pairs will be duplicated (B,A) - optimise?
         foreach (var cB in theirColliders)
-            Physics.IgnoreCollision(rigidbodyColliderbase, cB, flag);
+            Physics.IgnoreCollision(rigidbodyColliderBase, cB, flag);
     }
 }
