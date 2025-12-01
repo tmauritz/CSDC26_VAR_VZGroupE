@@ -8,17 +8,18 @@ public class SocketEvents : MonoBehaviour
     public void OnSelectEntered(SelectEnterEventArgs arg0)
     {
         var other = arg0.interactableObject.transform.gameObject;
-        SocketCollisionsIgnored(other, false);
+        SocketCollisionsIgnored(other, true);
     }
     
-    public void OnSelectExited(SelectEnterEventArgs arg0)
+    public void OnSelectExited(SelectExitEventArgs arg0)
     {
         var other = arg0.interactableObject.transform.gameObject;
-        SocketCollisionsIgnored(other, true);
+        SocketCollisionsIgnored(other, false);
     }
     
     private void SocketCollisionsIgnored(GameObject other, bool flag)
     {        
+        Debug.Log("SocketCollisionsIgnored" + flag + other.name);
         var theirColliders = other.GetComponentsInChildren<Collider>(true);
     
         // overkill - all (A,B) pairs will be duplicated (B,A) - optimise?

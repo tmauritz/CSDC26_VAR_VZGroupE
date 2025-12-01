@@ -2096,7 +2096,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe0bdeaeb8bd0846818928d19e7ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
-  scene: {fileID: 102900000, guid: a2d76df33b407b542b720ffcf98e0857, type: 3}
+  sceneIndex: 1
 --- !u!114 &1151201471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2292,7 +2292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe0bdeaeb8bd0846818928d19e7ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
-  scene: {fileID: 0}
+  sceneIndex: 0
 --- !u!114 &1205608272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2739,7 +2739,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe0bdeaeb8bd0846818928d19e7ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
-  scene: {fileID: 102900000, guid: a2d76df33b407b542b720ffcf98e0857, type: 3}
+  sceneIndex: 0
 --- !u!114 &1384811069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3206,7 +3206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe0bdeaeb8bd0846818928d19e7ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
-  scene: {fileID: 0}
+  sceneIndex: 0
 --- !u!114 &1711955088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4149,7 +4149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fe0bdeaeb8bd0846818928d19e7ce1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneSwitcher
-  scene: {fileID: 102900000, guid: a2d76df33b407b542b720ffcf98e0857, type: 3}
+  sceneIndex: 0
 --- !u!114 &2038324194
 MonoBehaviour:
   m_ObjectHideFlags: 0

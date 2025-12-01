@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 public class SceneSwitcher : MonoBehaviour
 {
     [SerializeField]
-    public SceneAsset scene;
+    public int sceneIndex;
 
     public void SwitchToScene()
     {
-        SceneManager.LoadScene(scene.name);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     public void QuitGame()
