@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
@@ -25,8 +26,8 @@ public class DoenerSocket : MonoBehaviour
         Ingredient ingredient = other.GetComponent<Ingredient>();
         if (ingredient != null)
         {
+            other.transform.parent = doener.gameObject.transform;
             doener.AddIngredient(ingredient.Type);
-            _socketInteractor.showInteractableHoverMeshes = false;
         }
     }
     
@@ -37,8 +38,8 @@ public class DoenerSocket : MonoBehaviour
         Ingredient ingredient = other.GetComponent<Ingredient>();
         if (ingredient != null)
         {
+            other.transform.parent = null;
             doener.RemoveIngredient(ingredient.Type);
-            _socketInteractor.showInteractableHoverMeshes = true;
         }
     }
     
@@ -51,4 +52,5 @@ public class DoenerSocket : MonoBehaviour
         foreach (var cB in theirColliders)
             Physics.IgnoreCollision(rigidbodyColliderBase, cB, flag);
     }
+    
 }
