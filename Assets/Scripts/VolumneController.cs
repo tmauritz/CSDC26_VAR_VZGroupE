@@ -22,6 +22,7 @@ public class VolumeController : MonoBehaviour
 
     public void SetVolume(float value)
     {
+        Debug.Log("new volume: " + value);
         // Slider (0–1) -> dB
         float dB = Mathf.Log10(Mathf.Clamp(value, 0.0001f, 1f)) * 20f;
         mixer.SetFloat("MasterVolume", dB);
