@@ -1,6 +1,8 @@
+using System;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class DoenerSocket : MonoBehaviour
 {
@@ -8,6 +10,13 @@ public class DoenerSocket : MonoBehaviour
     public Collider rigidbodyColliderBase;
     [SerializeField]
     private Doener doener;
+
+    private XRSocketInteractor _socketInteractor;
+
+    public void Awake()
+    {
+        _socketInteractor = GetComponent<XRSocketInteractor>();
+    }
 
     public void OnSelectEntered(SelectEnterEventArgs arg0)
     {
@@ -17,6 +26,7 @@ public class DoenerSocket : MonoBehaviour
         if (ingredient != null)
         {
             doener.AddIngredient(ingredient.Type);
+            _socketInteractor.showInteractableHoverMeshes = false;
         }
     }
     
@@ -28,6 +38,7 @@ public class DoenerSocket : MonoBehaviour
         if (ingredient != null)
         {
             doener.RemoveIngredient(ingredient.Type);
+            _socketInteractor.showInteractableHoverMeshes = true;
         }
     }
     
