@@ -1,14 +1,23 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Doener : MonoBehaviour
 {
     [SerializeField]
-    private bool hasSalad = false;
-    [SerializeField]
-    private bool hasTomatoes = false;
-    [SerializeField]
-    private bool hasOnions = false;
-    [SerializeField]
-    private bool hasMeat = false;
+    List<Ingredients> Ingredients = new List<Ingredients>();
+
+    public void AddIngredient(Ingredients ingredient)
+    {
+        Ingredients.Add(ingredient);
+    }
+    public void RemoveIngredient(Ingredients ingredient)
+    {
+        Ingredients.Remove(ingredient);
+    }
+
+    public List<Ingredients> getIngredients()
+    {
+        return Ingredients;
+    }
     
 }

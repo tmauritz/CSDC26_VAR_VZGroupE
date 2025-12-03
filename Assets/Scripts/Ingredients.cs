@@ -7,3 +7,9 @@ public enum Ingredients
     Onions = 2,
     Meat = 3
 }
+
+public class Ingredient : MonoBehaviour
+{
+    [SerializeField] private Ingredients type;
+    public Ingredients Type { get { return type; } }
+}
