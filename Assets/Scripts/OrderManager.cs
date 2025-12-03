@@ -17,7 +17,7 @@ public class OrderManager : MonoBehaviour
     private int moneyEarned = 0;
 
     //Timer
-    public float gameTime = 25f;
+    public float gameTime = 35f;
     private float currentTime;
     public TextMeshProUGUI timerText;
 
