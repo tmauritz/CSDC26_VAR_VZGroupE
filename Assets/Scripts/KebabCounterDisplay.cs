@@ -10,7 +10,7 @@ public class KebabCounterDisplay : MonoBehaviour
     {
         int totalDoeners = PersistenceManager.loadDoenerStat();
         Debug.Log("Total Doeners: " + totalDoeners);
-        KebabCounter.text = "Total Kebabs built: " + totalDoeners;
+        KebabCounter.text = "Total Kebabs built:\n" + totalDoeners;
     }
 
 }
