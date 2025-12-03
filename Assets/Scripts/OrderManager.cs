@@ -85,7 +85,7 @@ public class OrderManager : MonoBehaviour
 
         for (int i = 0; i < currentOrder.Count; i++)
         {
-            if (playerIngredients[i] != currentOrder[i])
+            if (!playerIngredients.Contains(currentOrder[i]))
                 return false;
         }
         return true;
