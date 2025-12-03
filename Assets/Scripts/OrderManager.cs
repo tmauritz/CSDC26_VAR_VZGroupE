@@ -16,13 +16,50 @@ public class OrderManager : MonoBehaviour
     public int moneyPerDoener = 5;
     private int moneyEarned = 0;
 
+    //Timer
+    public float gameTime = 25f;
+    private float currentTime;
+    public TextMeshProUGUI timerText;
+
+    //Sound
+    public AudioClip correctSound; 
+    public AudioClip wrongSound;     
+    private AudioSource audioSource;
+
     void Start()
     {
         // alle Zutaten ins Array laden
         allIngredients = (Ingredients[])Enum.GetValues(typeof(Ingredients));
 
         GenerateNewOrder();
-        UpdateEarnedDisplay();   
+        UpdateEarnedDisplay();
+
+        currentTime = gameTime;
+        UpdateTimerDisplay();
+
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            Debug.LogWarning("OrderManager: Keine AudioSource gefunden");
+        }
+    }
+    void Update()
+    {
+        
+        if (currentTime > 0f)
+        {
+            currentTime -= Time.deltaTime;
+            if (currentTime < 0f)
+                currentTime = 0f;
+
+            UpdateTimerDisplay();
+
+            if (currentTime <= 0f)
+            {
+                Debug.Log("Zeit vorbei!");
+                // TODO: Game Over / Auswertung machen
+            }
+        }
     }
 
     // Stellt eine zufällige Bestellung zusammen
@@ -69,12 +106,39 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    // timertext aktualisieren
+    private void UpdateTimerDisplay()
+    {
+        if (timerText != null)
+        {
+            // nur ganze sekunden anzeigen
+            timerText.text = Mathf.Ceil(currentTime).ToString() + "s";
+        }
+    }
+
     // wird aufgerufen wenn ein döner korrekt abgegeben wurde
     public void OnCorrectOrderServed()
     {
         moneyEarned += moneyPerDoener;
         UpdateEarnedDisplay();
+        PlayCorrectSound();
         GenerateNewOrder();
+    }
+
+    public void PlayCorrectSound()
+    {
+        if (audioSource != null && correctSound != null)
+        {
+            audioSource.PlayOneShot(correctSound);
+        }
+    }
+
+    public void PlayWrongSound()
+    {
+        if (audioSource != null && wrongSound != null)
+        {
+            audioSource.PlayOneShot(wrongSound);
+        }
     }
 
     // prüfe ob die Zutaten korrekt sind
