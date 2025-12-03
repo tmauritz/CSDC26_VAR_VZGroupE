@@ -73,6 +73,7 @@ public class OrderManager : MonoBehaviour
     public void OnCorrectOrderServed()
     {
         moneyEarned += moneyPerDoener;
+        PersistenceManager.addDoenerBuilt(1);
         UpdateEarnedDisplay();
         GenerateNewOrder();
     }

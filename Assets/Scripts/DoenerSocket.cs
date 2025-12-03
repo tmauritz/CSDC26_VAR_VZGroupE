@@ -16,7 +16,6 @@ public class DoenerSocket : MonoBehaviour
         Ingredient ingredient = other.GetComponent<Ingredient>();
         if (ingredient != null)
         {
-            other.transform.parent = doener.transform; //TODO: scaling
             doener.AddIngredient(ingredient.Type);
         }
     }
@@ -28,7 +27,6 @@ public class DoenerSocket : MonoBehaviour
         Ingredient ingredient = other.GetComponent<Ingredient>();
         if (ingredient != null)
         {
-            other.transform.parent = null;  //TODO: scaling
             doener.RemoveIngredient(ingredient.Type);
         }
     }
