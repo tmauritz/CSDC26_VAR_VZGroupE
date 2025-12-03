@@ -3294,6 +3294,7 @@ MonoBehaviour:
   timerText: {fileID: 342721198}
   correctSound: {fileID: 8300000, guid: 4a8ee25452b34a34b83dcb537e0174f8, type: 3}
   wrongSound: {fileID: 8300000, guid: d8e8ee09149211b4ca923ab62c4caaba, type: 3}
+  warningSound: {fileID: 8300000, guid: f72dd37ff5a66834bab68108cca1e2e9, type: 3}
 --- !u!82 &952625646
 AudioSource:
   m_ObjectHideFlags: 0
