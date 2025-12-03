@@ -25,6 +25,9 @@ public class OrderManager : MonoBehaviour
     public AudioClip correctSound; 
     public AudioClip wrongSound;     
     private AudioSource audioSource;
+    public AudioClip warningSound;
+
+    private bool warningPlayed = false;
 
     void Start()
     {
@@ -42,6 +45,7 @@ public class OrderManager : MonoBehaviour
         {
             Debug.LogWarning("OrderManager: Keine AudioSource gefunden");
         }
+        warningPlayed = false;
     }
     void Update()
     {
@@ -49,18 +53,27 @@ public class OrderManager : MonoBehaviour
         if (currentTime > 0f)
         {
             currentTime -= Time.deltaTime;
+
+            // Warnsound bei 10 sekunden
+            if (!warningPlayed && currentTime <= 10f)
+            {
+                PlayWarningSound();
+                warningPlayed = true;
+            }
+
             if (currentTime < 0f)
                 currentTime = 0f;
 
             UpdateTimerDisplay();
 
+            // Timer abgelaufen?
             if (currentTime <= 0f)
             {
-                Debug.Log("Zeit vorbei!");
-                // TODO: Game Over / Auswertung machen
+                HandleTimeOut();
             }
         }
     }
+
 
     // Stellt eine zufällige Bestellung zusammen
     private void GenerateNewOrder()
@@ -116,6 +129,25 @@ public class OrderManager : MonoBehaviour
         }
     }
 
+    private void HandleTimeOut()
+    {
+        // 5 € abziehen aber nicht unter 0 fallen
+        moneyEarned -= moneyPerDoener;
+        if (moneyEarned < 0)
+            moneyEarned = 0;
+
+        UpdateEarnedDisplay();
+
+        // neue bestellung und timer neu starten
+        GenerateNewOrder();
+        currentTime = gameTime;
+        warningPlayed = false;
+        UpdateTimerDisplay();
+
+        Debug.Log("Zeit abgelaufen – 5 € abgezogen und neue Bestellung gestartet");
+    }
+
+
     // wird aufgerufen wenn ein döner korrekt abgegeben wurde
     public void OnCorrectOrderServed()
     {
@@ -124,6 +156,11 @@ public class OrderManager : MonoBehaviour
         UpdateEarnedDisplay();
         PlayCorrectSound();
         GenerateNewOrder();
+
+        // timer für die nächste bestellung zurücksetzen
+        currentTime = gameTime;
+        warningPlayed = false;
+        UpdateTimerDisplay();
     }
 
     public void PlayCorrectSound()
@@ -141,6 +178,15 @@ public class OrderManager : MonoBehaviour
             audioSource.PlayOneShot(wrongSound);
         }
     }
+
+    public void PlayWarningSound()
+    {
+        if (audioSource != null && warningSound != null)
+        {
+            audioSource.PlayOneShot(warningSound);
+        }
+    }
+
 
     // prüfe ob die Zutaten korrekt sind
     public bool CheckOrder(List<Ingredients> playerIngredients)
