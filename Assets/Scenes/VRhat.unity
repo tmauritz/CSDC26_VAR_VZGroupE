@@ -1836,7 +1836,7 @@ PrefabInstance:
     - target: {fileID: 733393804659296716, guid: d2e9a1802f3959d4abac9a77f13b87f7, type: 3}
       propertyPath: itemPrefab
       value: 
-      objectReference: {fileID: 7844407646671634848, guid: a8662530281282d49ae01113ffdafa82, type: 3}
+      objectReference: {fileID: 7844407646671634848, guid: 77c470541dda8bd448179b1ea0eaafb2, type: 3}
     - target: {fileID: 2757475351353293263, guid: d2e9a1802f3959d4abac9a77f13b87f7, type: 3}
       propertyPath: m_Name
       value: ItemSpawner (4)
@@ -2796,7 +2796,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 51dea144ce3285844969fcf30d3c3661, type: 2}
+  - {fileID: 2100000, guid: ac78797cbe1c26c4bb9b7120cc13f576, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
