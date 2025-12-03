@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,5 +20,9 @@ public class Doener : MonoBehaviour
     {
         return Ingredients;
     }
-    
+
+    public void OnDestroy()
+    {
+        
+    }
 }

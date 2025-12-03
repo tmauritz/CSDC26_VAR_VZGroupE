@@ -27,7 +27,8 @@ public class DoenerDelivery : MonoBehaviour
         if (correct)
         {
             Debug.Log("[DoenerDelivery] Bestellung korrekt!");
-            orderManager.OnCorrectOrderServed();   
+            orderManager.OnCorrectOrderServed();
+            doener.gameObject.SetActive(false);
         }
         else
         {
