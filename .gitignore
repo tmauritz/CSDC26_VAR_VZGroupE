@@ -240,3 +240,6 @@ lint/tmp/
 *.hprof
 
 # End of https://mrkandreev.name/snippets/gitignore-generator/#Rider,Unity,Android
+/KebapTestBuild_BackUpThisFolder_ButDontShipItWithYourGame
+/.vscode
+/CSDC26_VAR_VZGroupE_BurstDebugInformation_DoNotShip
