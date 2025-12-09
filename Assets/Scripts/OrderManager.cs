@@ -75,7 +75,7 @@ public class OrderManager : MonoBehaviour
     }
 
 
-    // Stellt eine zufällige Bestellung zusammen
+    // Stellt eine zufï¿½llige Bestellung zusammen
     private void GenerateNewOrder()
     {
         currentOrder.Clear();
@@ -131,7 +131,8 @@ public class OrderManager : MonoBehaviour
 
     private void HandleTimeOut()
     {
-        // 5 € abziehen aber nicht unter 0 fallen
+        PlayWrongSound();
+        // 5 ï¿½ abziehen aber nicht unter 0 fallen
         moneyEarned -= moneyPerDoener;
         if (moneyEarned < 0)
             moneyEarned = 0;
@@ -143,12 +144,10 @@ public class OrderManager : MonoBehaviour
         currentTime = gameTime;
         warningPlayed = false;
         UpdateTimerDisplay();
-
-        Debug.Log("Zeit abgelaufen – 5 € abgezogen und neue Bestellung gestartet");
     }
 
 
-    // wird aufgerufen wenn ein döner korrekt abgegeben wurde
+    // wird aufgerufen wenn ein dï¿½ner korrekt abgegeben wurde
     public void OnCorrectOrderServed()
     {
         moneyEarned += moneyPerDoener;
@@ -157,7 +156,7 @@ public class OrderManager : MonoBehaviour
         PlayCorrectSound();
         GenerateNewOrder();
 
-        // timer für die nächste bestellung zurücksetzen
+        // timer fï¿½r die nï¿½chste bestellung zurï¿½cksetzen
         currentTime = gameTime;
         warningPlayed = false;
         UpdateTimerDisplay();
@@ -188,7 +187,7 @@ public class OrderManager : MonoBehaviour
     }
 
 
-    // prüfe ob die Zutaten korrekt sind
+    // prï¿½fe ob die Zutaten korrekt sind
     public bool CheckOrder(List<Ingredients> playerIngredients)
     {
         if (playerIngredients.Count != currentOrder.Count)
