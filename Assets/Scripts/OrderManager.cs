@@ -12,6 +12,11 @@ public class OrderManager : MonoBehaviour
     public TextMeshProUGUI ordersText;
     public TextMeshProUGUI earnedText;
 
+    //Canvas
+    public GameObject menuCanvas;
+    public GameObject gameOverCanvas;
+    public GameObject customer;
+
     
     public int moneyPerDoener = 5;
     private int moneyEarned = 0;
@@ -69,6 +74,9 @@ public class OrderManager : MonoBehaviour
             // Timer abgelaufen?
             if (currentTime <= 0f)
             {
+                menuCanvas.SetActive(false);
+                gameOverCanvas.SetActive(true);
+                customer.SetActive(false);
                 HandleTimeOut();
             }
         }
