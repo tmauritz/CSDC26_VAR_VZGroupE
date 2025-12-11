@@ -1,2 +1,13 @@
 # Readme
-This is repository for our VR Project.
+UI/UX Concept – Space Kebab VR
+
+Beim Start befindet sich der Spieler im Hauptmenü, wo alle wichtigen Funktionen übersichtlich angeordnet sind. Über den Button “Show Help” lässt sich das Tutorial öffnen, das gut leserlich aufgebaut ist und die grundlegenden Mechaniken erklärt. Direkt vor dem Tutorial befinden sich bereits alle Zutaten und ein Kebabbrot, sodass der Spieler die Interaktionen wie Greifen, Ablegen und Kombinieren sofort ausprobieren kann, bevor das eigentliche Spiel beginnt. Dadurch entsteht ein sehr intuitiver Einstieg.
+Im Settings Menü kann die Lautstärke des Hauptmenüs über einen einfachen Slider angepasst werden. Dieser ist groß genug, um in VR gut getroffen zu werden, und lässt sich ohne Mühe bedienen. Mit einem Klick auf „Save“ werden die Einstellungen übernommen. Sobald man “Go to Space” auswählt, wechselt die Anwendung in die eigentliche Spielszene.
+Im Spiel selbst gibt es ein TV Panel, das als zentrale Informationsfläche dient. Hier sieht der Spieler jederzeit die aktuelle Bestellung, die verbleibende Zeit sowie das bereits verdiente Geld. Für jedes korrekt gebaute Kebab erhält man 5 Dollar, was unmittelbar auf dem TV Display angezeigt wird. Wird ein Kebab rechtzeitig und richtig geliefert, ertönt ein deutliches „Cha-ching“ Geräusch, das sofort vermittelt, dass die Aktion erfolgreich war. Wird das Kebab jedoch falsch gebaut oder nicht rechtzeitig abgegeben, hört man ein kurzes Fehlersignal.
+
+Der Timer ist klar sichtbar und zusätzlich akustisch unterlegt: Sobald die Zeit knapp wird, gibt es einen Warnsound, der den Spieler darauf hinweist, schneller zu arbeiten. Dadurch wird die Nutzerführung nicht nur visuell, sondern auch auditiv unterstützt. Auf dem Bildschirm lässt sich außerdem jederzeit nachvollziehen, wie viel Geld man im Laufe der aktuellen Runde bereits verdient hat.
+
+Auch die akustische Gestaltung der Umgebung trägt viel zur Nutzererfahrung bei. Im Restaurant hört man ein dezentes Hintergrundambiente, und wenn man sich in der Nähe des Grills befindet, ist das Grillgeräusch deutlich wahrnehmbar. Entfernt man sich vom Spieß, wird der Ton leiser.
+Am Ende kann der Spieler im Hauptmenü erneut überprüfen, wie viele Kebabs insgesamt gebaut wurden. Die gesamte UI ist bewusst schlicht gehalten und unterstützt den Spieler genau an den Stellen, an denen er Informationen oder Feedback benötigt. Insgesamt entsteht dadurch ein sehr zugängliches und gut verständliches Bedienkonzept, das auch für VR Anfänger problemlos nutzbar ist.
+
+
