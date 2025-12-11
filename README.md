@@ -10,4 +10,4 @@ Der Timer ist klar sichtbar und zusätzlich akustisch unterlegt: Sobald die Zeit
 Auch die akustische Gestaltung der Umgebung trägt viel zur Nutzererfahrung bei. Im Restaurant hört man ein dezentes Hintergrundambiente, und wenn man sich in der Nähe des Grills befindet, ist das Grillgeräusch deutlich wahrnehmbar. Entfernt man sich vom Spieß, wird der Ton leiser.
 Am Ende kann der Spieler im Hauptmenü erneut überprüfen, wie viele Kebabs insgesamt gebaut wurden. Die gesamte UI ist bewusst schlicht gehalten und unterstützt den Spieler genau an den Stellen, an denen er Informationen oder Feedback benötigt. Insgesamt entsteht dadurch ein sehr zugängliches und gut verständliches Bedienkonzept, das auch für VR Anfänger problemlos nutzbar ist.
 
-
+Mockup:<img width="1425" height="755" alt="Screenshot 2025-12-11 at 16 13 51" src="https://github.com/user-attachments/assets/9a5428be-9523-4a6a-acd3-2445a95bedcc" />
